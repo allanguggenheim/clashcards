@@ -167,8 +167,8 @@
     var result = [];
     this.find('ul').hide().children().each(function() {
       result.push({
-        question: $(this).find('.question').text(),
-        answer: $(this).find('.answer').text()
+        question: $(this).find('.question').html(),
+        answer: $(this).find('.answer').html()
       });
     });
     
