@@ -8,7 +8,7 @@
     var flashcards = [],
         userInput  = $(selector).val().split('\n');
 
-    // Get rid of empty questions
+    
     userInput = userInput.filter(function(card) {
        return card !== "";
      });
@@ -32,36 +32,36 @@
         bigInterval   = Math.ceil(clashcards.flashcards.length / 3) + 1,
         smallInterval = Math.ceil(clashcards.flashcards.length / 6) + 1;
 
-    // Show an answer from bucket C once every bigInterval 
-    // So long as Bucket C it's not empty
+    
+    
     if (clashcards.counter % bigInterval === 0 && clashcards.bucketC.length !== 0) {
       newQuestion = getQuestion(clashcards.bucketC);
       clashcards.currentBucket = clashcards.bucketC;
 
-    // Show an answer from bucket B once every smallInterval
-    // So long as Bucket B it's not empty
+    
+    
     } else if (clashcards.counter % smallInterval === 0 && clashcards.bucketB.length !== 0) {
       newQuestion = getQuestion(clashcards.bucketB);
       clashcards.currentBucket = clashcards.bucketB;
 
-    // Show an answer from Bucket A, so long as it's not empty
+    
     } else if (clashcards.bucketA.length !== 0) {
       newQuestion = getQuestion(clashcards.bucketA);
       clashcards.currentBucket = clashcards.bucketA;
 
-    // Show an answer from Bucket B, so long as it's not empty
+    
     } else if (clashcards.bucketB.length !== 0) {
       newQuestion = getQuestion(clashcards.bucketB);
       clashcards.currentBucket = clashcards.bucketB;
 
-    // Show a question from Bucket C, so long as it's not empty
+    
     } else if (clashcards.bucketC.length !== 0) {
       newQuestion = getQuestion(clashcards.bucketC);
       clashcards.currentBucket = clashcards.bucketC;
     } else {
     }
 
-    // Reset clashcards.counter if it's greater than flashcard count, otherwise ++ it
+    
     clashcards.counter >= clashcards.flashcards.length ? clashcards.counter = 1 : clashcards.counter++;
     return newQuestion;
   }
@@ -87,7 +87,7 @@
   }
 
   function getQuestion(bucket) {
-    // Prevent from looping thru an empty bucket
+    
     if (!bucket || bucket.length === 0) {
       return;
     }
@@ -156,7 +156,7 @@
     resetBuckets:       resetBuckets
   };
 
-// jQuery magic
+
   var showNext = function() {
     var result = next();
     $('#current-question').first().html(result['question']);
